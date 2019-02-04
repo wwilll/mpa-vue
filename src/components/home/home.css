@@ -1,3 +1,12 @@
 .home {
+  font-size: 1rem;
   color: red;
+}
+.home input {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+.home button {
+  font-size: 1rem;
 }

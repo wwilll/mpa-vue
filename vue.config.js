@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 module.exports = {
     publicPath: process.env.NODE_ENV === 'production' ? './' : './',
     outputDir: 'dist',
@@ -11,12 +12,21 @@ module.exports = {
             title: '首页',
             chunks: ['chunk-vendors', 'chunk-common', 'index']
         }
+        // ajaxTest: 'src/modules/ajax-test/ajax.js'
     },
     lintOnSave: true,
     runtimeCompiler: false,
     transpileDependencies: [],
     productionSourceMap: false,
     configureWebpack: (config) => {
+        return {
+            plugins: [
+                new webpack.ProvidePlugin({
+                    $: "jquery",
+                    jQuery: "jquery"
+                })
+            ]
+        }
     },
     chainWebpack: (config) => {
         // 因为是多页面，所以取消 chunks，每个页面只对应一个单独的 JS / CSS
@@ -51,7 +61,7 @@ module.exports = {
     },
     devServer: {
         open: true,
-        host: '127.0.0.1',
+        host: '0.0.0.0',
         port: 9092,
         https: false,
         hotOnly: false,

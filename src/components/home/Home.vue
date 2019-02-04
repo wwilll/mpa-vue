@@ -45,7 +45,7 @@ export default {
       this.$ajax.get(window.DATAURL.home.get).then((response) => {
         this.callbackString = response.data;
       }).catch((error) => {
-        this.callbackString = error.response.statusText;
+        this.callbackString = error.message;
       })
     }
   },

@@ -35,7 +35,13 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
-  }
+  },
+  created () {
+    // window.scrollTo(0, 0)
+    this.$(function () {
+      // alert('234')
+    })
+  },
 }
 </script>
 
